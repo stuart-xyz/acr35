@@ -1,5 +1,5 @@
 # ACR35
-Android + iOS ***Apache Cordova*** bootstrap for the ACR35 NFC reader
+Android + iOS ***Apache Cordova*** demo for the ACR35 NFC reader
 
 ## What does this do? / Who is this for?
 
@@ -13,7 +13,7 @@ This project contains a basic demo application that explains how to use the ACR3
 * Connection status checking (based on a timeout for command response)
 * (Android only) Additional connection status checking based on device media volume and device audio socket plugged-in status
 
-This project is aimed towards anyone who is interested in using the ACR35 reader with NFC-less Android and iOS devices, and would like to quickly get the SDK up and running. **In particular, this bootstrap will save you going through the arduous process of writing a Cordova plugin that works with the reader**. The advantage of using a framework like Cordova is that native code can mostly be replaced by JavaScript, which works the same across most devices. This can greatly accelerate the process of developing an application for multiple mobile operating systems.
+This project is aimed towards anyone who is interested in using the ACR35 reader with NFC-less Android and iOS devices, and would like to quickly get the SDK up and running. **In particular, this will save you going through the arduous process of writing a Cordova plugin that works with the reader**. The advantage of using a framework like Cordova is that native code can mostly be replaced by JavaScript, which works the same across most devices. This can greatly accelerate the process of developing an application for multiple mobile operating systems.
 
 ### What if I don't want to use Apache Cordova?
 
@@ -56,7 +56,7 @@ When the `read` function of the Cordova plugin is called, a new polling thread i
 ## Installation
 
 1. `git clone https://github.com/stuart-xyz/acr35`
-2. `cd path/to/acr35/me.stuartphillips.acr35`
+2. `cd acr35/me.stuartphillips.acr35`
 3. `cordova prepare`
 4. **iOS only:** In Xcode, open `platforms/ios/ACR35_Reader_Bootstrap.xcodeproj`
    <br> Ensure that `AudioToolbox.framework` is added to the project *build phases*
