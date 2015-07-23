@@ -92,7 +92,7 @@ cordova plugin add ../plugin
 * `acr35.read(cardType, successCallback, failureCallback)`
   <br> Starts a polling thread where the reader sends out the APDU command for reading tag UIDs every second. In this loop, the connection status of the reader is automatically periodically checked
     * **cardType**: a string containing the card type to be read (global variable `cardType` is set to '143' - this is the default in the demo application provided by ACS). Card types provided in the [ACR35 SDK](http://www.acs.com.hk/download-driver-unified/6934/ACR3x-EVK-Android-1.00.zip) documentation:
-      <br> ![Card types](https://github.com/stuart-xyz/acr35/card_types.png "Card types")
+      <br> ![Card types](https://raw.githubusercontent.com/stuart-xyz/acr35/master/card_types.png "Card types")
     * **successCallback(message)**: JavaScript function to be called when the reader sends feedback. Possible messages:
         * *A string containing the UID of a tag that has been read*
         * "disconnected": cannot communicate with the reader (3 second timeout has been reached with no response to read UID APDU command)
