@@ -1,0 +1,152 @@
+\hypertarget{interfaceUIDReader}{}\section{U\+I\+D\+Reader Class Reference}
+\label{interfaceUIDReader}\index{U\+I\+D\+Reader@{U\+I\+D\+Reader}}
+Inheritance diagram for U\+I\+D\+Reader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfaceUIDReader}
+\end{center}
+\end{figure}
+\subsection*{Instance Methods}
+\begin{DoxyCompactItemize}
+\item 
+(void) -\/ \hyperlink{interfaceUIDReader_af0ef56b58bad390f3f85481869b3138d}{read\+:}
+\item 
+(void) -\/ \hyperlink{interfaceUIDReader_a37ffaeb0dc8c3c98219e1dbdb8d2f102}{sleep\+:}
+\item 
+(N\+S\+String $\ast$) -\/ \hyperlink{interfaceUIDReader_abd2d0ead6a01740f10a8bfea53ff08af}{hex\+String\+From\+Byte\+Array\+:length\+:}
+\item 
+(void) -\/ \hyperlink{interfaceUIDReader_a26686ee664bbaa266254cb777604bfc8}{transmit}
+\item 
+(void) -\/ \hyperlink{interfaceUIDReader_a93db7b28395eea0b5350a8baf5891d70}{reader\+Did\+Reset\+:}
+\item 
+(void) -\/ \hyperlink{interfaceUIDReader_a6c76d217a0d26bc946c8e4b00092e526}{reader\+:did\+Send\+Picc\+Response\+Apdu\+:length\+:}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class allows control of the A\+C\+R35 reader sleep state and P\+I\+C\+C commands 
+
+Definition at line 6 of file U\+I\+D\+Reader.\+h.
+
+
+
+\subsection{Method Documentation}
+\hypertarget{interfaceUIDReader_abd2d0ead6a01740f10a8bfea53ff08af}{}\index{U\+I\+D\+Reader@{U\+I\+D\+Reader}!hex\+String\+From\+Byte\+Array\+:length\+:@{hex\+String\+From\+Byte\+Array\+:length\+:}}
+\index{hex\+String\+From\+Byte\+Array\+:length\+:@{hex\+String\+From\+Byte\+Array\+:length\+:}!U\+I\+D\+Reader@{U\+I\+D\+Reader}}
+\subsubsection[{hex\+String\+From\+Byte\+Array\+:length\+:(const uint8\+\_\+t $\ast$buffer,[length] N\+S\+U\+Integer length)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\+S\+String $\ast$) hex\+String\+From\+Byte\+Array\+: 
+\begin{DoxyParamCaption}
+\item[{(const uint8\+\_\+t $\ast$)}]{buffer}
+\item[{length:(N\+S\+U\+Integer)}]{length}
+\end{DoxyParamCaption}
+}\label{interfaceUIDReader_abd2d0ead6a01740f10a8bfea53ff08af}
+Converts raw data into a hexidecimal string
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & raw data in the form of a byte array \\
+\hline
+{\em length} & the length of the byte array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string containing the data in hexidecimal form 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file U\+I\+D\+Reader.\+m.
+
+\hypertarget{interfaceUIDReader_af0ef56b58bad390f3f85481869b3138d}{}\index{U\+I\+D\+Reader@{U\+I\+D\+Reader}!read\+:@{read\+:}}
+\index{read\+:@{read\+:}!U\+I\+D\+Reader@{U\+I\+D\+Reader}}
+\subsubsection[{read\+:(\+C\+D\+V\+Invoked\+Url\+Command $\ast$command)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) read\+: 
+\begin{DoxyParamCaption}
+\item[{(C\+D\+V\+Invoked\+Url\+Command$\ast$)}]{command}
+\end{DoxyParamCaption}
+}\label{interfaceUIDReader_af0ef56b58bad390f3f85481869b3138d}
+Sets the A\+C\+R35 reader to continuously poll for the presence of a card. If a card is found, the U\+I\+D will be returned to the Apache Cordova application
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & the command sent from Cordova \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file U\+I\+D\+Reader.\+m.
+
+\hypertarget{interfaceUIDReader_a6c76d217a0d26bc946c8e4b00092e526}{}\index{U\+I\+D\+Reader@{U\+I\+D\+Reader}!reader\+:did\+Send\+Picc\+Response\+Apdu\+:length\+:@{reader\+:did\+Send\+Picc\+Response\+Apdu\+:length\+:}}
+\index{reader\+:did\+Send\+Picc\+Response\+Apdu\+:length\+:@{reader\+:did\+Send\+Picc\+Response\+Apdu\+:length\+:}!U\+I\+D\+Reader@{U\+I\+D\+Reader}}
+\subsubsection[{reader\+:did\+Send\+Picc\+Response\+Apdu\+:length\+:(\+A\+C\+R\+Audio\+Jack\+Reader $\ast$reader,[did\+Send\+Picc\+Response\+Apdu] const uint8\+\_\+t $\ast$response\+Apdu,[length] N\+S\+U\+Integer length)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) reader\+: 
+\begin{DoxyParamCaption}
+\item[{(A\+C\+R\+Audio\+Jack\+Reader $\ast$)}]{reader}
+\item[{didSendPiccResponseApdu:(const uint8\+\_\+t $\ast$)}]{response\+Apdu}
+\item[{length:(N\+S\+U\+Integer)}]{length}
+\end{DoxyParamCaption}
+}\label{interfaceUIDReader_a6c76d217a0d26bc946c8e4b00092e526}
+Callback for P\+I\+C\+C response A\+P\+D\+U
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & S\+D\+K reader object \\
+\hline
+{\em response\+Apdu} & byte array containing the response \\
+\hline
+{\em length} & the length of the response \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 151 of file U\+I\+D\+Reader.\+m.
+
+\hypertarget{interfaceUIDReader_a93db7b28395eea0b5350a8baf5891d70}{}\index{U\+I\+D\+Reader@{U\+I\+D\+Reader}!reader\+Did\+Reset\+:@{reader\+Did\+Reset\+:}}
+\index{reader\+Did\+Reset\+:@{reader\+Did\+Reset\+:}!U\+I\+D\+Reader@{U\+I\+D\+Reader}}
+\subsubsection[{reader\+Did\+Reset\+:(\+A\+C\+R\+Audio\+Jack\+Reader $\ast$reader)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) reader\+Did\+Reset\+: 
+\begin{DoxyParamCaption}
+\item[{(A\+C\+R\+Audio\+Jack\+Reader $\ast$)}]{reader}
+\end{DoxyParamCaption}
+}\label{interfaceUIDReader_a93db7b28395eea0b5350a8baf5891d70}
+Callback for when the reader has successfully reset
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & S\+D\+K reader object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 93 of file U\+I\+D\+Reader.\+m.
+
+\hypertarget{interfaceUIDReader_a37ffaeb0dc8c3c98219e1dbdb8d2f102}{}\index{U\+I\+D\+Reader@{U\+I\+D\+Reader}!sleep\+:@{sleep\+:}}
+\index{sleep\+:@{sleep\+:}!U\+I\+D\+Reader@{U\+I\+D\+Reader}}
+\subsubsection[{sleep\+:(\+C\+D\+V\+Invoked\+Url\+Command $\ast$command)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) sleep\+: 
+\begin{DoxyParamCaption}
+\item[{(C\+D\+V\+Invoked\+Url\+Command$\ast$)}]{command}
+\end{DoxyParamCaption}
+}\label{interfaceUIDReader_a37ffaeb0dc8c3c98219e1dbdb8d2f102}
+Sends the reader to sleep after stopping the polling thread
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & the command sent from Cordova \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file U\+I\+D\+Reader.\+m.
+
+\hypertarget{interfaceUIDReader_a26686ee664bbaa266254cb777604bfc8}{}\index{U\+I\+D\+Reader@{U\+I\+D\+Reader}!transmit@{transmit}}
+\index{transmit@{transmit}!U\+I\+D\+Reader@{U\+I\+D\+Reader}}
+\subsubsection[{transmit()}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) transmit 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}\label{interfaceUIDReader_a26686ee664bbaa266254cb777604bfc8}
+Transmits a P\+I\+C\+C command to the reader 
+
+Definition at line 83 of file U\+I\+D\+Reader.\+m.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+U\+I\+D\+Reader.\+h\item 
+U\+I\+D\+Reader.\+m\end{DoxyCompactItemize}

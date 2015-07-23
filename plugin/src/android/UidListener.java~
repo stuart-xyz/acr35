@@ -1,0 +1,86 @@
+package uk.ac.manchester.acr35
+
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
+import org.apache.cordova.PluginResult;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import com.acs.audiojack.AudioJackReader;
+
+public class UidListener extends CordovaPlugin {
+
+  AudioManager mAudioManager;
+  final AudioJackReader mReader;
+
+  final int timeout = 1;    /* 1 second. */
+  final byte[] apdu = { (byte) 0xFF, (byte) 0xCA, (byte) 0x00, (byte) 0x00, (byte) 0x00 };
+
+	private String bytesToHex(byte[] buffer) {
+      String bufferString = "";
+      if (buffer != null) {
+          for(int i = 0; i < buffer.length; i++) {
+              String hexChar = Integer.toHexString(buffer[i] & 0xFF);
+              if (hexChar.length() == 1) {
+                  hexChar = "0" + hexChar;
+              }
+              bufferString += hexChar.toUpperCase(Locale.US) + " ";
+          }
+      }
+      return bufferString;
+  }
+
+  protected void pluginInitialize() {
+    mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+    mReader = new AudioJackReader(mAudioManager);
+		
+		/* Set the PICC response APDU callback. */
+		mReader.setOnPiccResponseApduAvailableListener(
+		        new AudioJackReader.OnPiccResponseApduAvailableListener() {
+		            @Override
+		            public void onPiccResponseApduAvailable(AudioJackReader reader,
+		                                                    byte[] responseApdu) {
+		                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, bytesToHex(responseApdu)));
+		            }
+		        });
+
+    mReader.start();
+    mReader.reset();
+  }
+
+  public boolean execute(String action, JSONArray args, CallbackContext callbackContext)
+      throws JSONException {
+    if (action.equals("start")) {
+      start(args.getString(0) callbackContext);
+      return true;
+    }
+    else if (action.equals("stop")) {
+      stop(callbackContext);
+      return true;
+    }
+    return false;
+  }
+
+  private synchronized void start(final String cardType,
+                                  final CallbackContext callbackContext) {
+    new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    while(true) {
+                        /* Power on the PICC. */
+                        mReader.piccPowerOn(timeout, cardType);
+                        /* Transmit the APDU. */
+                        mReader.piccTransmit(timeout, apdu);
+
+                        Thread.sleep(1000);
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+  }
+}

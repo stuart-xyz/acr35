@@ -1,0 +1,40 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Toast\"><param name=\"android-package\" value=\"nl.xservices.plugins.Toast\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"acr35\"><param name=\"android-package\" value=\"me.stuartphillips.plugins.acr35\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "me.stuartphillips.acr35"
+        },
+        "nl.x-services.plugins.toast": {
+            "PACKAGE_NAME": "me.stuartphillips.acr35"
+        },
+        "me.stuartphillips.plugins.acr35": {
+            "PACKAGE_NAME": "me.stuartphillips.acr35"
+        }
+    },
+    "dependent_plugins": {}
+}

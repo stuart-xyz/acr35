@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="me.stuartphillips.plugins.acr35" version="0.0.1">
+
+    <name>ACR35 Reader Bootstrap</name>
+    <description>Plugin for use with "Android + iOS Apache Cordova NFC bootstrap for the ACR35 NFC reader"</description>
+
+    <engines>
+        <engine name="cordova" version=">=3.8.0" />
+    </engines>
+
+    <js-module src="www/acr35.js" name="acr35">
+        <clobbers target="acr35" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="acr35">
+                <param name="android-package" value="me.stuartphillips.plugins.acr35" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/acr35.java" target-dir="src/me/stuartphillips/plugins" />
+        <source-file src="src/android/Transmitter.java" target-dir="src/me/stuartphillips/plugins" />
+        <source-file src="src/android/libs/acsaj-1.0.0.jar" target-dir="libs" />
+    </platform>
+
+    <!-- iOS -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="acr35">
+                <param name="ios-package" value="acr35"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/UIDReader.h" />
+        <source-file src="src/ios/UIDReader.m" />
+        <source-file src="src/ios/dummy.mm" />
+        <source-file src="src/ios/libs/libAudioJack.a" framework="true" />
+        <header-file src="src/ios/libs/AudioJack.h" />
+        <header-file src="src/ios/libs/ACRCRC16.h" />
+        <header-file src="src/ios/libs/ACRAesTrackData.h" />
+        <header-file src="src/ios/libs/ACRAudioJackReader.h" />
+        <header-file src="src/ios/libs/ACRDukptReceiver.h" />
+        <header-file src="src/ios/libs/ACRDukptTrackData.h" />
+        <header-file src="src/ios/libs/ACRResult.h" />
+        <header-file src="src/ios/libs/ACRStatus.h" />
+        <header-file src="src/ios/libs/ACRTrack1Data.h" />
+        <header-file src="src/ios/libs/ACRTrack2Data.h" />
+        <header-file src="src/ios/libs/ACRTrackData.h" />
+        <header-file src="src/ios/libs/AudioJackErrors.h" />
+    </platform>
+
+</plugin>

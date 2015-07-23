@@ -1,0 +1,46 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Toast\"><param name=\"ios-package\" value=\"Toast\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"acr35\"><param name=\"ios-package\" value=\"acr35\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "framework": {
+                "parents": {
+                    "QuartzCore.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "me.stuartphillips.acr35"
+        },
+        "nl.x-services.plugins.toast": {
+            "PACKAGE_NAME": "me.stuartphillips.acr35"
+        },
+        "me.stuartphillips.plugins.acr35": {
+            "PACKAGE_NAME": "me.stuartphillips.acr35"
+        }
+    },
+    "dependent_plugins": {}
+}

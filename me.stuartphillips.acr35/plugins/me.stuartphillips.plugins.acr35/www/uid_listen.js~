@@ -1,0 +1,10 @@
+module.exports = {
+  uid_listen: function(cardType, successCallback) {
+    cordova.exec(successCallback,
+                 null, // No failure callback
+                 "UidListener",
+                 "listen",
+                 [cardType]);
+  },
+  
+};

@@ -1,0 +1,192 @@
+package uk.ac.manchester.acr35;
+
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.PluginResult;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.acs.audiojack.AudioJackReader;
+import com.acs.audiojack.ReaderException;
+
+import android.media.AudioManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.BroadcastReceiver;
+
+import java.lang.Override;
+import java.lang.Runnable;
+import java.lang.System;
+import java.lang.Thread;
+import java.util.Locale;
+
+public class UIDReader extends CordovaPlugin {
+
+    private Transmitter transmitter;
+    private boolean readerConnected = false;
+    private boolean readerTimeout = false;
+    private AudioManager mAudioManager;
+    private AudioJackReader mReader;
+    private Context mContext;
+
+    final byte[] apdu = { (byte) 0xFF, (byte) 0xCA, (byte) 0x00, (byte) 0x00, (byte) 0x00 };
+	final byte[] atr = { (byte) 0x00, (byte) 0x84, (byte) 0x00, (byte) 0x00, (byte) 0x08 };
+    final int timeout = 1;
+
+//    /**
+//     * Checks the reset volume.
+//     *
+//     * @return true if current volume is equal to maximum volume.
+//     */
+//    private boolean checkResetVolume() {
+//
+//        boolean ret = true;
+//
+//        int currentVolume = mAudioManager
+//                .getStreamVolume(AudioManager.STREAM_MUSIC);
+//
+//        int maxVolume = mAudioManager
+//                .getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+//
+//        if (currentVolume < maxVolume) {
+//
+//            showMessageDialog(R.string.info, R.string.message_reset_info_volume);
+//            ret = false;
+//        }
+//
+//        return ret;
+//    }
+
+    private String bytesToHex(byte[] buffer) {
+        String bufferString = "";
+        if (buffer != null) {
+            for(int i = 0; i < buffer.length; i++) {
+                String hexChar = Integer.toHexString(buffer[i] & 0xFF);
+                if (hexChar.length() == 1) {
+                    hexChar = "0" + hexChar;
+                }
+                bufferString += hexChar.toUpperCase(Locale.US) + " ";
+            }
+        }
+        return bufferString;
+    }
+
+    private void read(final CallbackContext callbackContext, final int cardType){
+        System.out.println("setting up for reading...");
+        mReader.start();
+
+        /* Set the reset complete callback. */
+        mReader.setOnResetCompleteListener(new AudioJackReader.OnResetCompleteListener() {
+            @Override
+            public void onResetComplete(AudioJackReader reader) {
+                System.out.println("reset complete");
+            }
+        });
+        mReader.reset();
+
+        /* Set the PICC response APDU callback. */
+        mReader.setOnPiccResponseApduAvailableListener(new AudioJackReader.OnPiccResponseApduAvailableListener() {
+            @Override
+            public void onPiccResponseApduAvailable(AudioJackReader reader, byte[] responseApdu) {
+//                    callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, bytesToHex(responseApdu)));
+                PluginResult result = new PluginResult(PluginResult.Status.OK, bytesToHex(responseApdu));
+                result.setKeepCallback(true);
+                callbackContext.sendPluginResult(result);
+            }
+        });
+        transmitter = new Transmitter(mReader, timeout, apdu);
+        cordova.getThreadPool().execute(transmitter);
+
+        System.out.println("completed setup");
+    }
+
+    @Override
+    public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
+//        final BroadcastReceiver mHeadsetPlugReceiver = new BroadcastReceiver() {
+//            @Override
+//            public void onReceive(Context context, Intent intent) {
+//                if (intent.getAction().equals(Intent.ACTION_HEADSET_PLUG)) {
+//                    boolean plugged = (intent.getIntExtra("state", 0) == 1);
+//                    /* Mute the audio output if the reader is unplugged. */
+//                    mReader.setMute(!plugged);
+//                }
+//            }
+//        };
+//
+//        /* Register the headset plug receiver. */
+//        IntentFilter filter = new IntentFilter();
+//        filter.addAction(Intent.ACTION_HEADSET_PLUG);
+//        this.cordova.getActivity().getApplicationContext().registerReceiver(mHeadsetPlugReceiver, filter);
+
+        mAudioManager = (AudioManager) this.cordova.getActivity().getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+        mReader = new AudioJackReader(mAudioManager);
+
+        if (action.equals("read")) {
+            read(callbackContext, 143);
+            PluginResult result = new PluginResult(PluginResult.Status.NO_RESULT);
+            result.setKeepCallback(true);
+            callbackContext.sendPluginResult(result);
+            return true;
+        } else if (action.equals("sleep")) {
+            transmitter.kill();
+            callbackContext.success();
+            return true;
+        } else if (action.equals("probe")) {
+            System.out.println("probing...");
+
+			if(!mAudioManager.isWiredHeadsetOn()){
+				System.out.println("unplugged");
+				callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, "device unplugged"));
+				return true;
+			}
+			
+            mReader.start();
+            mReader.reset();
+
+            /* Set the PICC response APDU callback. */
+            mReader.setOnPiccResponseApduAvailableListener(new AudioJackReader.OnPiccResponseApduAvailableListener() {
+                @Override
+                public void onPiccResponseApduAvailable(AudioJackReader reader, byte[] responseApdu) {
+                    readerConnected = true;
+                    System.out.println("reader connected");
+                }
+            });
+
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    try {
+                        /* Power on the PICC. */
+                        mReader.piccPowerOn(timeout, 143);
+                        /* Transmit the APDU. */
+                        mReader.piccTransmit(timeout, apdu);
+						/* Power off the PICC. */
+                        mReader.piccPowerOff();
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if(!readerConnected){
+                        readerTimeout = true;
+                        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, "false"));
+                    } else {
+                        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, "true"));
+                    }
+                }
+            });
+
+            if(!readerTimeout){
+                PluginResult result = new PluginResult(PluginResult.Status.NO_RESULT);
+                result.setKeepCallback(true);
+                callbackContext.sendPluginResult(result);
+            }
+            return true;
+        } else {
+            System.out.println("invalid command");
+            callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
+            return false;
+        }
+    }
+
+}

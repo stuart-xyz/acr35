@@ -1,0 +1,133 @@
+/********* UIDReader.m Cordova Plugin Implementation *******/
+
+#import "UIDReader.h"
+
+@implementation UIDReader
+
+NSString *myCallbackId;
+NSUInteger timeout = 1;  // 1 second.
+NSUInteger cardType = 143;  // UoM cards == 143
+uint8_t commandApdu[] = { 0xFF, 0xCA, 0x00, 0x00, 0x00 };  // APDU command for reading UID
+ACRAudioJackReader *_reader;
+bool killThread = false;
+bool readerConnected = true;
+int itersWithoutResponse = 0;
+bool firstRun = true;
+bool firstRead = true;
+
+// Convert from a byte array to a hexidecimal formatted string
+- (NSString *)hexStringFromByteArray:(const uint8_t *)buffer length:(NSUInteger)length {
+    
+    NSString *hexString = @"";
+    NSUInteger i = 0;
+    
+    for (i = 0; i < length; i++) {
+        if (i == 0) {
+            hexString = [hexString stringByAppendingFormat:@"%02X", buffer[i]];
+        } else {
+            hexString = [hexString stringByAppendingFormat:@" %02X", buffer[i]];
+        }
+    }
+    
+    return hexString;
+}
+
+/** Set the reader to sleep mode */
+- (void)sleep:(CDVInvokedUrlCommand*)command {
+	killThread = true;
+	
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"asleep"];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+// Is an audio jack plugged in?
+- (bool)isHeadsetPluggedIn {
+    // AVAudioSessionRouteDescription* route = [[AVAudioSession sharedInstance] currentRoute];
+//     for (AVAudioSessionPortDescription* desc in [route outputs]) {
+//         if ([[desc portType] isEqualToString:AVAudioSessionPortHeadphones])
+//             return true;
+//     }
+//     return false;
+	return true;
+}
+
+- (void)read:(CDVInvokedUrlCommand*)command {
+	if(firstRun){
+	    // Initialize ACRAudioJackReader object.
+	    _reader = [[ACRAudioJackReader alloc] init];
+	    [_reader setDelegate:self];
+	}	
+    myCallbackId = command.callbackId;
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"initialised"];
+    [pluginResult setKeepCallback:[NSNumber numberWithBool:YES]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:myCallbackId];
+	firstRun = false;
+	firstRead = true;
+	
+    // Reset the reader.
+    [_reader reset];
+}
+
+- (void)transmit {
+	NSLog(@"iteration");
+    // Power on the PICC.
+    [_reader piccPowerOnWithTimeout:timeout cardType:cardType];
+    // Transmit the APDU.
+    [_reader piccTransmitWithTimeout:timeout commandApdu:commandApdu
+                              length:sizeof(commandApdu)];
+}
+
+#pragma mark - Audio Jack Reader
+
+- (void)readerDidReset:(ACRAudioJackReader *)reader {
+    [self.commandDelegate runInBackground:^{
+		if(firstRead){
+		    // Reset the reader.
+		    [_reader reset];
+			
+			firstRead = false;
+		}
+		else{
+	        while(!killThread){
+				if(!readerConnected){
+					itersWithoutResponse++;
+				}
+				else{
+					itersWithoutResponse = 0;
+				}
+				readerConnected = false;
+				// Equivalent to 3 second timeout
+				if((itersWithoutResponse == 4) || ![self isHeadsetPluggedIn]) {
+					CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"disconnected"];
+					killThread = true;
+					itersWithoutResponse = 0;
+					NSLog(@"disconnected");
+					[self.commandDelegate sendPluginResult:pluginResult callbackId:myCallbackId];
+				}
+				else{
+					[self transmit];
+	            	// Repeat every second
+		            [NSThread sleepForTimeInterval:1.0];
+				}
+	        }
+		    // Power off the PICC.
+		    [_reader piccPowerOff];
+		
+			[_reader sleep];
+			killThread = false;
+		}
+    }];
+}
+
+- (void)reader:(ACRAudioJackReader *)reader didSendPiccResponseApdu:(const uint8_t *)responseApdu
+        length:(NSUInteger)length {
+	readerConnected = true;
+    NSString *uid = [self hexStringFromByteArray:responseApdu length:(sizeof(responseApdu)*2) - 1];
+    NSLog(uid);
+
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:uid];
+    [pluginResult setKeepCallback:[NSNumber numberWithBool:YES]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:myCallbackId];
+}
+
+@end

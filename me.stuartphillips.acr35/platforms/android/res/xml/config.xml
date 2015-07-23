@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="me.stuartphillips.acr35" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Toast">
+        <param name="android-package" value="nl.xservices.plugins.Toast" />
+    </feature>
+    <feature name="acr35">
+        <param name="android-package" value="me.stuartphillips.plugins.acr35" />
+    </feature>
+    <allow-intent href="market:*" />
+    <name>ACR35_Reader_Bootstrap</name>
+    <description>
+        Android + iOS Apache Cordova NFC bootstrap for the ACR35 NFC reader
+    </description>
+    <author email="dev@stuartphillips.me" href="http://stuartphillips.me">
+        Stuart Phillips
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+</widget>
