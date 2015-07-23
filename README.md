@@ -1,8 +1,6 @@
 # ACR35
 Android + iOS ***Apache Cordova*** bootstrap for the ACR35 NFC reader
 
-Contact <dev@stuartphillips.me>
-
 ## What does this do? / Who is this for?
 
 This project contains a basic demo application that explains how to use the ACR35 reader to read the UID of NFC tags, using the cross-platform mobile development framework Apache Cordova. It uses the ACR35 SDK that was produced by Advanced Card Systems (ACS). In addition, on Android only, the application checks two connection indicators: device media volume (must be set to 100% for operation) and device audio socket plugged-in status.
