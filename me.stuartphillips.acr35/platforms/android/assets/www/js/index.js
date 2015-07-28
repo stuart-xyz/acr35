@@ -34,8 +34,16 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        document.getElementById("content").style.display = "inherit";
 
+		document.addEventListener("pause", function(){
+        	acr35.sleep(function(){
+		        window.plugins.toast.showShortBottom("INFO: stopped polling successfully");
+		    }, function(){
+		        window.plugins.toast.showShortBottom("ERROR: polling could not be stopped");
+		    });
+    	}, false);
+
+        document.getElementById("content").style.display = "inherit";
         document.getElementById("btn_start").addEventListener("click", function(){
             reader_start();
         }, false);
