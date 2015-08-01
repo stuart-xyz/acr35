@@ -5,7 +5,9 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
+		1A98DFF459B24F4BAD83F5F4 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8562EB3A154802AC99C7C3 /* Toast.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
@@ -28,6 +30,8 @@
 		30C1856619D5FC0A00212699 /* icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30C1856519D5FC0A00212699 /* icon-60@3x.png */; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
+		6C061746D9A04177A4371217 /* acr35.m in Sources */ = {isa = PBXBuildFile; fileRef = 7619E5AE390C476FA7EE486E /* acr35.m */; };
+		79501D621B6D1FD3005280A8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79501D611B6D1FD3005280A8 /* AudioToolbox.framework */; };
 		7E7966DE1810823500FA85AD /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D41810823500FA85AD /* icon-40.png */; };
 		7E7966DF1810823500FA85AD /* icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D51810823500FA85AD /* icon-40@2x.png */; };
 		7E7966E01810823500FA85AD /* icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D61810823500FA85AD /* icon-50.png */; };
@@ -38,13 +42,11 @@
 		7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DB1810823500FA85AD /* icon-76@2x.png */; };
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
-		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
+		9158064007F243D48629609C /* dummy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C0EFDF184684FF9B7017847 /* dummy.mm */; };
+		B81B6B8F3C754D9D89A259FB /* libAudioJack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7138EE21095E4EE8AFC34D1B /* libAudioJack.a */; };
 		CF49ACD573764066B0D8A6B3 /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D0F204296A4957A189E8E8 /* Toast+UIView.m */; };
-		1A98DFF459B24F4BAD83F5F4 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8562EB3A154802AC99C7C3 /* Toast.m */; };
+		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		FCD64E8F91AF43528A333330 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DDE8640856040DC9D2B62B6 /* QuartzCore.framework */; };
-		A10C5FFD875A4EDCA329DD5D /* UIDReader.m in Sources */ = {isa = PBXBuildFile; fileRef = B8463C87C82A4916B3FB7DE3 /* UIDReader.m */; };
-		04031A5ED4CD41EF8742F40F /* dummy.mm in Resources */ = {isa = PBXBuildFile; fileRef = F349FE11CC4A4235BC57762C /* dummy.mm */; };
-		D7E25EBE36744D7E9A4D8048 /* libAudioJack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBEF7A0553F946FB831A841F /* libAudioJack.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,11 +67,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0ACC1845F85C49A499A671F6 /* ACRAudioJackReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACRAudioJackReader.h; path = me.stuartphillips.plugins.acr35/ACRAudioJackReader.h; sourceTree = "<group>"; };
+		0ACD7C906D5F4E10AFC5D77B /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Toast+UIView.h"; path = "nl.x-services.plugins.toast/Toast+UIView.h"; sourceTree = "<group>"; };
+		0E05D457AE4A460187D96E1E /* ACRDukptReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACRDukptReceiver.h; path = me.stuartphillips.plugins.acr35/ACRDukptReceiver.h; sourceTree = "<group>"; };
+		134954129A7144E9BA35E363 /* ACRCRC16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACRCRC16.h; path = me.stuartphillips.plugins.acr35/ACRCRC16.h; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* ACR35_Reader_Bootstrap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ACR35_Reader_Bootstrap.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F766FDD13BBADB100FB74C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
-		1F766FE013BBADB100FB74C0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* ACR35_Reader_Bootstrap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACR35_Reader_Bootstrap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
@@ -93,7 +97,16 @@
 		30C1856519D5FC0A00212699 /* icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-60@3x.png"; sourceTree = "<group>"; };
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* ACR35_Reader_Bootstrap-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACR35_Reader_Bootstrap-Prefix.pch"; sourceTree = "<group>"; };
+		3BBA1B7E74E34B388C13E222 /* ACRTrackData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACRTrackData.h; path = me.stuartphillips.plugins.acr35/ACRTrackData.h; sourceTree = "<group>"; };
+		5A5A5BC51723466EAAA7789A /* ACRStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACRStatus.h; path = me.stuartphillips.plugins.acr35/ACRStatus.h; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		5C0EFDF184684FF9B7017847 /* dummy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = dummy.mm; path = me.stuartphillips.plugins.acr35/dummy.mm; sourceTree = "<group>"; };
+		5DDE8640856040DC9D2B62B6 /* QuartzCore.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		61AD42261DB44D12956FB107 /* ACRDukptTrackData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACRDukptTrackData.h; path = me.stuartphillips.plugins.acr35/ACRDukptTrackData.h; sourceTree = "<group>"; };
+		7138EE21095E4EE8AFC34D1B /* libAudioJack.a */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libAudioJack.a; path = ACR35_Reader_Bootstrap/Plugins/me.stuartphillips.plugins.acr35/libAudioJack.a; sourceTree = "<group>"; };
+		72D0F204296A4957A189E8E8 /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Toast+UIView.m"; path = "nl.x-services.plugins.toast/Toast+UIView.m"; sourceTree = "<group>"; };
+		7619E5AE390C476FA7EE486E /* acr35.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = acr35.m; path = me.stuartphillips.plugins.acr35/acr35.m; sourceTree = "<group>"; };
+		79501D611B6D1FD3005280A8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7E7966D41810823500FA85AD /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40.png"; sourceTree = "<group>"; };
 		7E7966D51810823500FA85AD /* icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40@2x.png"; sourceTree = "<group>"; };
 		7E7966D61810823500FA85AD /* icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-50.png"; sourceTree = "<group>"; };
@@ -104,33 +117,21 @@
 		7E7966DB1810823500FA85AD /* icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76@2x.png"; sourceTree = "<group>"; };
 		7E7966DC1810823500FA85AD /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
 		7E7966DD1810823500FA85AD /* icon-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small@2x.png"; sourceTree = "<group>"; };
+		7E8562EB3A154802AC99C7C3 /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Toast.m; path = "nl.x-services.plugins.toast/Toast.m"; sourceTree = "<group>"; };
+		8C60BF286A914BFB91ED7AA2 /* ACRTrack2Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACRTrack2Data.h; path = me.stuartphillips.plugins.acr35/ACRTrack2Data.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ACR35_Reader_Bootstrap-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ACR35_Reader_Bootstrap-Info.plist"; path = "../ACR35_Reader_Bootstrap-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		96AC299420434A3DBC27486B /* ACRResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACRResult.h; path = me.stuartphillips.plugins.acr35/ACRResult.h; sourceTree = "<group>"; };
+		9AA2CF15049347CC9B0AF979 /* ACRAesTrackData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACRAesTrackData.h; path = me.stuartphillips.plugins.acr35/ACRAesTrackData.h; sourceTree = "<group>"; };
+		A1F71E66BB77434D8B46480B /* Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Toast.h; path = "nl.x-services.plugins.toast/Toast.h"; sourceTree = "<group>"; };
+		AF550219D9B04709BE280592 /* ACRTrack1Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACRTrack1Data.h; path = me.stuartphillips.plugins.acr35/ACRTrack1Data.h; sourceTree = "<group>"; };
+		BB05E36793234D6886B94929 /* AudioJackErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioJackErrors.h; path = me.stuartphillips.plugins.acr35/AudioJackErrors.h; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		DEB13C35E8804FF9BECE81D5 /* acr35.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = acr35.h; path = me.stuartphillips.plugins.acr35/acr35.h; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
-		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "ACR35_Reader_Bootstrap/config.xml"; sourceTree = "<group>"; };
-		72D0F204296A4957A189E8E8 /* Toast+UIView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Toast+UIView.m"; path = "nl.x-services.plugins.toast/Toast+UIView.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		7E8562EB3A154802AC99C7C3 /* Toast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Toast.m"; path = "nl.x-services.plugins.toast/Toast.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		0ACD7C906D5F4E10AFC5D77B /* Toast+UIView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Toast+UIView.h"; path = "nl.x-services.plugins.toast/Toast+UIView.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		A1F71E66BB77434D8B46480B /* Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Toast.h"; path = "nl.x-services.plugins.toast/Toast.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		5DDE8640856040DC9D2B62B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuartzCore.framework"; path = "System/Library/Frameworks/QuartzCore.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		B8463C87C82A4916B3FB7DE3 /* UIDReader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIDReader.m"; path = "me.stuartphillips.plugins.acr35/UIDReader.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		F349FE11CC4A4235BC57762C /* dummy.mm */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "dummy.mm"; path = "me.stuartphillips.plugins.acr35/dummy.mm"; sourceTree = "<group>"; fileEncoding = 4; };
-		FBEF7A0553F946FB831A841F /* libAudioJack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libAudioJack.a"; path = "ACR35_Reader_Bootstrap/Plugins/me.stuartphillips.plugins.acr35/libAudioJack.a"; sourceTree = "<group>"; fileEncoding = 4; };
-		644F33146AA84F9988D5F2EC /* UIDReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIDReader.h"; path = "me.stuartphillips.plugins.acr35/UIDReader.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		F9E610474FD542DCB8DA4F54 /* AudioJack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AudioJack.h"; path = "me.stuartphillips.plugins.acr35/AudioJack.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		12645A2333B34F6D82124841 /* ACRCRC16.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ACRCRC16.h"; path = "me.stuartphillips.plugins.acr35/ACRCRC16.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		641B3BC6B8C3461F8BA377B0 /* ACRAesTrackData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ACRAesTrackData.h"; path = "me.stuartphillips.plugins.acr35/ACRAesTrackData.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		7958934607C04D598744F76B /* ACRAudioJackReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ACRAudioJackReader.h"; path = "me.stuartphillips.plugins.acr35/ACRAudioJackReader.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		D21038E94C884162B8572EFE /* ACRDukptReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ACRDukptReceiver.h"; path = "me.stuartphillips.plugins.acr35/ACRDukptReceiver.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		D12121E0F4E94540873F80C1 /* ACRDukptTrackData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ACRDukptTrackData.h"; path = "me.stuartphillips.plugins.acr35/ACRDukptTrackData.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		798EF480F94F4AB881133CA3 /* ACRResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ACRResult.h"; path = "me.stuartphillips.plugins.acr35/ACRResult.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		756580FDC4164784AC2F1E7B /* ACRStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ACRStatus.h"; path = "me.stuartphillips.plugins.acr35/ACRStatus.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		B6377D4C32CD4D5F8DBF7910 /* ACRTrack1Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ACRTrack1Data.h"; path = "me.stuartphillips.plugins.acr35/ACRTrack1Data.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		FD4BB39922E44882ABF45FB6 /* ACRTrack2Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ACRTrack2Data.h"; path = "me.stuartphillips.plugins.acr35/ACRTrack2Data.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		793F1A26DDA54ACF9B595141 /* ACRTrackData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ACRTrackData.h"; path = "me.stuartphillips.plugins.acr35/ACRTrackData.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		BAF1ED2906374F8F888D908A /* AudioJackErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AudioJackErrors.h"; path = "me.stuartphillips.plugins.acr35/AudioJackErrors.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ACR35_Reader_Bootstrap/config.xml; sourceTree = "<group>"; };
+		F9480A79D5D54BA99E7A0240 /* AudioJack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioJack.h; path = me.stuartphillips.plugins.acr35/AudioJack.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,12 +139,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79501D621B6D1FD3005280A8 /* AudioToolbox.framework in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				FCD64E8F91AF43528A333330 /* QuartzCore.framework in Frameworks */,
-				D7E25EBE36744D7E9A4D8048 /* libAudioJack.a in Frameworks */,
+				B81B6B8F3C754D9D89A259FB /* libAudioJack.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +162,7 @@
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
 			);
 			name = Classes;
-			path = "ACR35_Reader_Bootstrap/Classes";
+			path = ACR35_Reader_Bootstrap/Classes;
 			sourceTree = SOURCE_ROOT;
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -196,7 +198,7 @@
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
-			path = "ACR35_Reader_Bootstrap";
+			path = ACR35_Reader_Bootstrap;
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
@@ -207,17 +209,18 @@
 				8D1107310486CEB800E47090 /* ACR35_Reader_Bootstrap-Info.plist */,
 			);
 			name = Resources;
-			path = "ACR35_Reader_Bootstrap/Resources";
+			path = ACR35_Reader_Bootstrap/Resources;
 			sourceTree = "<group>";
 		};
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79501D611B6D1FD3005280A8 /* AudioToolbox.framework */,
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
 				5DDE8640856040DC9D2B62B6 /* QuartzCore.framework */,
-				FBEF7A0553F946FB831A841F /* libAudioJack.a */,
+				7138EE21095E4EE8AFC34D1B /* libAudioJack.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -237,24 +240,24 @@
 				7E8562EB3A154802AC99C7C3 /* Toast.m */,
 				0ACD7C906D5F4E10AFC5D77B /* Toast+UIView.h */,
 				A1F71E66BB77434D8B46480B /* Toast.h */,
-				B8463C87C82A4916B3FB7DE3 /* UIDReader.m */,
-				F349FE11CC4A4235BC57762C /* dummy.mm */,
-				644F33146AA84F9988D5F2EC /* UIDReader.h */,
-				F9E610474FD542DCB8DA4F54 /* AudioJack.h */,
-				12645A2333B34F6D82124841 /* ACRCRC16.h */,
-				641B3BC6B8C3461F8BA377B0 /* ACRAesTrackData.h */,
-				7958934607C04D598744F76B /* ACRAudioJackReader.h */,
-				D21038E94C884162B8572EFE /* ACRDukptReceiver.h */,
-				D12121E0F4E94540873F80C1 /* ACRDukptTrackData.h */,
-				798EF480F94F4AB881133CA3 /* ACRResult.h */,
-				756580FDC4164784AC2F1E7B /* ACRStatus.h */,
-				B6377D4C32CD4D5F8DBF7910 /* ACRTrack1Data.h */,
-				FD4BB39922E44882ABF45FB6 /* ACRTrack2Data.h */,
-				793F1A26DDA54ACF9B595141 /* ACRTrackData.h */,
-				BAF1ED2906374F8F888D908A /* AudioJackErrors.h */,
+				7619E5AE390C476FA7EE486E /* acr35.m */,
+				5C0EFDF184684FF9B7017847 /* dummy.mm */,
+				DEB13C35E8804FF9BECE81D5 /* acr35.h */,
+				F9480A79D5D54BA99E7A0240 /* AudioJack.h */,
+				134954129A7144E9BA35E363 /* ACRCRC16.h */,
+				9AA2CF15049347CC9B0AF979 /* ACRAesTrackData.h */,
+				0ACC1845F85C49A499A671F6 /* ACRAudioJackReader.h */,
+				0E05D457AE4A460187D96E1E /* ACRDukptReceiver.h */,
+				61AD42261DB44D12956FB107 /* ACRDukptTrackData.h */,
+				96AC299420434A3DBC27486B /* ACRResult.h */,
+				5A5A5BC51723466EAAA7789A /* ACRStatus.h */,
+				AF550219D9B04709BE280592 /* ACRTrack1Data.h */,
+				8C60BF286A914BFB91ED7AA2 /* ACRTrack2Data.h */,
+				3BBA1B7E74E34B388C13E222 /* ACRTrackData.h */,
+				BB05E36793234D6886B94929 /* AudioJackErrors.h */,
 			);
 			name = Plugins;
-			path = "ACR35_Reader_Bootstrap/Plugins";
+			path = ACR35_Reader_Bootstrap/Plugins;
 			sourceTree = SOURCE_ROOT;
 		};
 		308D052D1370CCF300D202BF /* icons */ = {
@@ -322,8 +325,8 @@
 			dependencies = (
 				301BF551109A68C00062928A /* PBXTargetDependency */,
 			);
-			name = "ACR35_Reader_Bootstrap";
-			productName = "ACR35_Reader_Bootstrap";
+			name = ACR35_Reader_Bootstrap;
+			productName = ACR35_Reader_Bootstrap;
 			productReference = 1D6058910D05DD3D006BFB54 /* ACR35_Reader_Bootstrap.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -335,7 +338,7 @@
 			attributes = {
 				LastUpgradeCheck = 510;
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "__CLI__" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ACR35_Reader_Bootstrap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -438,8 +441,8 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				CF49ACD573764066B0D8A6B3 /* Toast+UIView.m in Sources */,
 				1A98DFF459B24F4BAD83F5F4 /* Toast.m in Sources */,
-				A10C5FFD875A4EDCA329DD5D /* UIDReader.m in Sources */,
-				04031A5ED4CD41EF8742F40F /* dummy.mm in Resources */,
+				6C061746D9A04177A4371217 /* acr35.m in Sources */,
+				9158064007F243D48629609C /* dummy.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +471,10 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "ACR35_Reader_Bootstrap/ACR35_Reader_Bootstrap-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ACR35_Reader_Bootstrap/Plugins/me.stuartphillips.plugins.acr35\"",
+				);
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -480,12 +487,8 @@
 					"-weak-lSystem",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "ACR35_Reader_Bootstrap";
+				PRODUCT_NAME = ACR35_Reader_Bootstrap;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/ACR35_Reader_Bootstrap/Plugins/me.stuartphillips.plugins.acr35\"",
-				);
 			};
 			name = Debug;
 		};
@@ -501,6 +504,10 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "ACR35_Reader_Bootstrap/ACR35_Reader_Bootstrap-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ACR35_Reader_Bootstrap/Plugins/me.stuartphillips.plugins.acr35\"",
+				);
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -513,12 +520,8 @@
 					"-weak-lSystem",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "ACR35_Reader_Bootstrap";
+				PRODUCT_NAME = ACR35_Reader_Bootstrap;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/ACR35_Reader_Bootstrap/Plugins/me.stuartphillips.plugins.acr35\"",
-				);
 			};
 			name = Release;
 		};
@@ -621,7 +624,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "__CLI__" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ACR35_Reader_Bootstrap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

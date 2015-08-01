@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transmit',['transmit',['../interfaceUIDReader.html#a26686ee664bbaa266254cb777604bfc8',1,'UIDReader']]]
+  ['sleep_3a',['sleep:',['../interfaceacr35.html#a1fbf70819ba1d99f7bad526db1dd09bb',1,'acr35']]]
 ];

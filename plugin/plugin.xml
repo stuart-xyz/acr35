@@ -31,8 +31,8 @@
                 <param name="ios-package" value="acr35"/>
             </feature>
         </config-file>
-        <header-file src="src/ios/UIDReader.h" />
-        <source-file src="src/ios/UIDReader.m" />
+        <header-file src="src/ios/acr35.h" />
+        <source-file src="src/ios/acr35.m" />
         <source-file src="src/ios/dummy.mm" />
         <source-file src="src/ios/libs/libAudioJack.a" framework="true" />
         <header-file src="src/ios/libs/AudioJack.h" />

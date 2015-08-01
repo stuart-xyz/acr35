@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>ED6F7898-6F08-41BD-9F1A-981F936C8445</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ACR35_Reader_Bootstrap</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F9C938881ECB07DF29C8738614118621CFEFFD03</key>
+		<string>https://github.com/stuart-xyz/acr35</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>me.stuartphillips.acr35/platforms/ios/ACR35_Reader_Bootstrap.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F9C938881ECB07DF29C8738614118621CFEFFD03</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/stuart-xyz/acr35</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F9C938881ECB07DF29C8738614118621CFEFFD03</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F9C938881ECB07DF29C8738614118621CFEFFD03</string>
+			<key>IDESourceControlWCCName</key>
+			<string>acr35</string>
+		</dict>
+	</array>
+</dict>
+</plist>

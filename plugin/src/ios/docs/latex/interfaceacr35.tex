@@ -1,0 +1,152 @@
+\hypertarget{interfaceacr35}{}\section{acr35 Class Reference}
+\label{interfaceacr35}\index{acr35@{acr35}}
+Inheritance diagram for acr35\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfaceacr35}
+\end{center}
+\end{figure}
+\subsection*{Instance Methods}
+\begin{DoxyCompactItemize}
+\item 
+(void) -\/ \hyperlink{interfaceacr35_a626cea917a3ed7f01f522f4390729ebe}{read\+:}
+\item 
+(void) -\/ \hyperlink{interfaceacr35_a1fbf70819ba1d99f7bad526db1dd09bb}{sleep\+:}
+\item 
+(N\+S\+String $\ast$) -\/ \hyperlink{interfaceacr35_a95bec4c2efdc961d463922782cb0bef6}{hex\+String\+From\+Byte\+Array\+:length\+:}
+\item 
+(void) -\/ \hyperlink{interfaceacr35_af948714c5a31f04672761017195061db}{transmit}
+\item 
+(void) -\/ \hyperlink{interfaceacr35_a3e59ed5ebaa53c749d418acd314bd144}{reader\+Did\+Reset\+:}
+\item 
+(void) -\/ \hyperlink{interfaceacr35_a5403cd80aaa20f8fa360b0be8a697d23}{reader\+:did\+Send\+Picc\+Response\+Apdu\+:length\+:}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class allows control of the A\+C\+R35 reader sleep state and P\+I\+C\+C commands 
+
+Definition at line 6 of file acr35.\+h.
+
+
+
+\subsection{Method Documentation}
+\hypertarget{interfaceacr35_a95bec4c2efdc961d463922782cb0bef6}{}\index{acr35@{acr35}!hex\+String\+From\+Byte\+Array\+:length\+:@{hex\+String\+From\+Byte\+Array\+:length\+:}}
+\index{hex\+String\+From\+Byte\+Array\+:length\+:@{hex\+String\+From\+Byte\+Array\+:length\+:}!acr35@{acr35}}
+\subsubsection[{hex\+String\+From\+Byte\+Array\+:length\+:(const uint8\+\_\+t $\ast$buffer,[length] N\+S\+U\+Integer length)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\+S\+String $\ast$) hex\+String\+From\+Byte\+Array\+: 
+\begin{DoxyParamCaption}
+\item[{(const uint8\+\_\+t $\ast$)}]{buffer}
+\item[{length:(N\+S\+U\+Integer)}]{length}
+\end{DoxyParamCaption}
+}\label{interfaceacr35_a95bec4c2efdc961d463922782cb0bef6}
+Converts raw data into a hexidecimal string
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & raw data in the form of a byte array \\
+\hline
+{\em length} & the length of the byte array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string containing the data in hexidecimal form 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file acr35.\+m.
+
+\hypertarget{interfaceacr35_a626cea917a3ed7f01f522f4390729ebe}{}\index{acr35@{acr35}!read\+:@{read\+:}}
+\index{read\+:@{read\+:}!acr35@{acr35}}
+\subsubsection[{read\+:(\+C\+D\+V\+Invoked\+Url\+Command $\ast$command)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) read\+: 
+\begin{DoxyParamCaption}
+\item[{(C\+D\+V\+Invoked\+Url\+Command$\ast$)}]{command}
+\end{DoxyParamCaption}
+}\label{interfaceacr35_a626cea917a3ed7f01f522f4390729ebe}
+Sets the A\+C\+R35 reader to continuously poll for the presence of a card. If a card is found, the U\+I\+D will be returned to the Apache Cordova application
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & the command sent from Cordova \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file acr35.\+m.
+
+\hypertarget{interfaceacr35_a5403cd80aaa20f8fa360b0be8a697d23}{}\index{acr35@{acr35}!reader\+:did\+Send\+Picc\+Response\+Apdu\+:length\+:@{reader\+:did\+Send\+Picc\+Response\+Apdu\+:length\+:}}
+\index{reader\+:did\+Send\+Picc\+Response\+Apdu\+:length\+:@{reader\+:did\+Send\+Picc\+Response\+Apdu\+:length\+:}!acr35@{acr35}}
+\subsubsection[{reader\+:did\+Send\+Picc\+Response\+Apdu\+:length\+:(\+A\+C\+R\+Audio\+Jack\+Reader $\ast$reader,[did\+Send\+Picc\+Response\+Apdu] const uint8\+\_\+t $\ast$response\+Apdu,[length] N\+S\+U\+Integer length)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) reader\+: 
+\begin{DoxyParamCaption}
+\item[{(A\+C\+R\+Audio\+Jack\+Reader $\ast$)}]{reader}
+\item[{didSendPiccResponseApdu:(const uint8\+\_\+t $\ast$)}]{response\+Apdu}
+\item[{length:(N\+S\+U\+Integer)}]{length}
+\end{DoxyParamCaption}
+}\label{interfaceacr35_a5403cd80aaa20f8fa360b0be8a697d23}
+Callback for P\+I\+C\+C response A\+P\+D\+U
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & S\+D\+K reader object \\
+\hline
+{\em response\+Apdu} & byte array containing the response \\
+\hline
+{\em length} & the length of the response \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 151 of file acr35.\+m.
+
+\hypertarget{interfaceacr35_a3e59ed5ebaa53c749d418acd314bd144}{}\index{acr35@{acr35}!reader\+Did\+Reset\+:@{reader\+Did\+Reset\+:}}
+\index{reader\+Did\+Reset\+:@{reader\+Did\+Reset\+:}!acr35@{acr35}}
+\subsubsection[{reader\+Did\+Reset\+:(\+A\+C\+R\+Audio\+Jack\+Reader $\ast$reader)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) reader\+Did\+Reset\+: 
+\begin{DoxyParamCaption}
+\item[{(A\+C\+R\+Audio\+Jack\+Reader $\ast$)}]{reader}
+\end{DoxyParamCaption}
+}\label{interfaceacr35_a3e59ed5ebaa53c749d418acd314bd144}
+Callback for when the reader has successfully reset
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & S\+D\+K reader object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 93 of file acr35.\+m.
+
+\hypertarget{interfaceacr35_a1fbf70819ba1d99f7bad526db1dd09bb}{}\index{acr35@{acr35}!sleep\+:@{sleep\+:}}
+\index{sleep\+:@{sleep\+:}!acr35@{acr35}}
+\subsubsection[{sleep\+:(\+C\+D\+V\+Invoked\+Url\+Command $\ast$command)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) sleep\+: 
+\begin{DoxyParamCaption}
+\item[{(C\+D\+V\+Invoked\+Url\+Command$\ast$)}]{command}
+\end{DoxyParamCaption}
+}\label{interfaceacr35_a1fbf70819ba1d99f7bad526db1dd09bb}
+Sends the reader to sleep after stopping the polling thread
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & the command sent from Cordova \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file acr35.\+m.
+
+\hypertarget{interfaceacr35_af948714c5a31f04672761017195061db}{}\index{acr35@{acr35}!transmit@{transmit}}
+\index{transmit@{transmit}!acr35@{acr35}}
+\subsubsection[{transmit()}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) transmit 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}\label{interfaceacr35_af948714c5a31f04672761017195061db}
+Transmits a P\+I\+C\+C command to the reader 
+
+Definition at line 83 of file acr35.\+m.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+acr35.\+h\item 
+acr35.\+m\end{DoxyCompactItemize}
